@@ -8,7 +8,7 @@ env:
   REGISTRY: docker.io
   REPO_UI : suraj49470/3-tier-frontend
   REPO_BACKEND : suraj49470/3-tier-backnend
-  IMAGE_VERSION: 1.0
+  DOCKER_IMAGE_VERSION: 1.0
 
 
 jobs:
@@ -42,8 +42,8 @@ jobs:
 
       - name: Push frontend image
         run:  |
-          docker tag ${{ env.REPO_UI }} ${{REPO_UI}}:${{IMAGE_VERSION}}
-          docker push ${{REPO_UI}}:${{IMAGE_VERSION}} 
+          docker tag ${{ env.REPO_UI }} ${{REPO_UI}}:${{DOCKER_IMAGE_VERSION}}
+          docker push ${{REPO_UI}}:${{DOCKER_IMAGE_VERSION}} 
 
 
 
