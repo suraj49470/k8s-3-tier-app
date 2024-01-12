@@ -11,7 +11,7 @@ env:
 
 
 jobs:
-  build:
+  frontend_build:
 
     runs-on: ubuntu-latest
 
