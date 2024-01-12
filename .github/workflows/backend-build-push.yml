@@ -37,8 +37,8 @@ jobs:
       - name: Push frontend image
         run:  |
           docker image ls
-          # docker tag ${{ env.REPO_UI }} ${{env.REPO_UI}}:${{env.DOCKER_IMAGE_VERSION}}
-          # docker push ${{env.REPO_UI}}:${{env.DOCKER_IMAGE_VERSION}} 
+          docker tag ${{ env.REPO_UI }} ${{env.REPO_UI}}:${{env.DOCKER_IMAGE_VERSION}}
+          docker push ${{env.REPO_UI}}:${{env.DOCKER_IMAGE_VERSION}} 
         shell: bash
   
 
