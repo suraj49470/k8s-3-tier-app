@@ -8,7 +8,7 @@ env:
   REGISTRY: docker.io
   REPO_UI : suraj49470/3-tier-frontend
   DOCKER_IMAGE_VERSION: 1.0
-  DOCKER_PATH: frontend
+  DOCKER_CONTEXT_PATH: frontend
 
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       
       - name: Build frontend image
         run: |
-          docker build -t ${{ env.REPO_UI }} ./{{env.DOCKER_PATH}}  
+          docker build -t ${{ env.REPO_UI }} ./${{ env.DOCKER_CONTEXT_PATH }}   
 
       - name: Log into registry ${{ env.REGISTRY }}
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
