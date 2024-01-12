@@ -1,9 +1,4 @@
-name: Docker
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+name: Frontend
 
 on:
   push:
@@ -13,6 +8,7 @@ env:
   REGISTRY: docker.io
   REPO_UI : suraj49470/3-tier-frontend
   REPO_BACKEND : suraj49470/3-tier-backnend
+  IMAGE_VERSION: 1.0
 
 
 jobs:
@@ -34,17 +30,6 @@ jobs:
           username: ${{ secrets.DOCKER_USER_NAME}}
           password: ${{ secrets.DOCKER_USER_PASSWORD}}
       
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-      
-      - name : GET Meta name and tags
-        run : |
-          echo ${{ steps.meta.outputs.tags }}
-          echo ${{ steps.meta.outputs.labels }}
-
       - name: Build frontend image
         run: |
           docker build -t ${{ env.REPO_UI }} ./frontend
@@ -53,7 +38,12 @@ jobs:
       - name: Build API image
         run: |
           docker build -t ${{ env.REPO_BACKEND }} ./backend
-        shell: bash     
+        shell: bash    
+
+      - name: Push frontend image
+        run:  |
+          docker tag ${{ env.REPO_UI }} ${{REPO_UI}}/${{IMAGE_VERSION}}
+          docker push ${{REPO_UI}}/${{IMAGE_VERSION}} 
 
 
 
