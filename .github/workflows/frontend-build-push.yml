@@ -40,10 +40,11 @@ jobs:
           docker build -t ${{ env.REPO_BACKEND }} ./backend
         shell: bash    
 
-      # - name: Push frontend image
-      #   run:  |
-      #     docker tag ${{ env.REPO_UI }} ${{REPO_UI}}:${{DOCKER_IMAGE_VERSION}}
-      #     docker push ${{REPO_UI}}:${{DOCKER_IMAGE_VERSION}} 
+      - name: Push frontend image
+        run:  |
+          docker tag ${{ env.REPO_UI }} ${{REPO_UI}}:${{DOCKER_IMAGE_VERSION}}
+          docker push ${{REPO_UI}}:${{DOCKER_IMAGE_VERSION}} 
+        shell: bash
 
 
 
