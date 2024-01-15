@@ -1,4 +1,4 @@
-import { env } from '../../public/env';
+import { env } from './env';
 export const host = env.REACT_APP_BACKEND_URL;
 export const loginRoute = `${host}/api/auth/login`;
 export const registerRoute = `${host}/api/auth/register`;
