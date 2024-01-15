@@ -17,7 +17,7 @@ spec:
         image: suraj49470/3-tier-frontend:1
         env:
           - name: REACT_APP_BACKEND_URL
-            value: http://backend
+            value: test
         resources:
           limits:
             memory: "128Mi"

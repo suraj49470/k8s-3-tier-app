@@ -3,10 +3,8 @@ WORKDIR /app
 COPY package*.json .
 RUN npm install
 COPY . .
-RUN npm run build
-EXPOSE 5000
-RUN npx react-inject-env set
+CMD [ "npm", "start"]
 
-FROM nginx:1-alpine3.18-slim
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
+# FROM nginx:1-alpine3.18-slim
+# COPY --from=build /app/build /usr/share/nginx/html
+# EXPOSE 80
