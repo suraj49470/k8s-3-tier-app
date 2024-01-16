@@ -26,7 +26,7 @@ mongoose
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
-app.use("/health", (req,res) => {
+app.use("/api/health", (req,res) => {
   res.status(200).send('ok');
 });
 

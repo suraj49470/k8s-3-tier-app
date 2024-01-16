@@ -16,13 +16,20 @@ spec:
             name: frontend
             port: 
               number: 80
-  - host: 3-tier-app-backend.com
-    http:
-      paths:
       - pathType: Prefix
-        path: "/"
+        path: "/api"
         backend:
           service:
             name: backend
             port: 
               number: 5000
+  # - host: 3-tier-app-backend.com
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: backend
+  #           port: 
+  #             number: 5000
