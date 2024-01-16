@@ -23,7 +23,7 @@ spec:
             - name: PORT
               value: "5000"
             - name: MONGO_URL
-              value: mongodb://mongodb-svc?directConnection=true
+              value: mongodb://admin:admin@mongodb-svc?directConnection=true&authSource=admin
           ports:
             - containerPort: 5000
 
